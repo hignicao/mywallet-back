@@ -1,9 +1,9 @@
-import { usersSchema } from "../schemas/usersSchema.js";
+import { userSchema } from "../schemas/userSchema.js";
 import { usersCollection } from "../database/db.js";
 
 export async function signUpValidation(req, res, next) {
 	const user = req.body;
-	const { error } = usersSchema.validate(user, { abortEarly: false });
+	const { error } = userSchema.validate(user, { abortEarly: false });
 
 	if (error) {
 		const errors = error.details.map((err) => err.message);

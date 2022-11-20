@@ -5,7 +5,7 @@ import { signInValidation } from "../middlewares/signInValidationMiddleware.js";
 
 const router = Router();
 
-router.post("/cadastro", signUpValidation, signUp);
-router.post("/login", signInValidation, signIn);
+router.post("/signup", signUpValidation, signUp);
+router.post("/signin", signInValidation, signIn);
 
 export default router;
