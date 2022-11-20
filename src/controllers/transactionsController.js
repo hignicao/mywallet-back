@@ -12,4 +12,14 @@ export async function newTransaction(req, res) {
 	}
 }
 
-export async function getTransactions(req, res) {}
+export async function getTransactions(req, res) {
+	const { email } = req.user;
+
+	try {
+		const transactions = await transactionsCollection.find({ author: email }).toArray();
+		res.send(transactions);
+	} catch (error) {
+		console.log(error);
+		return res.sendStatus(500);
+	}
+}
