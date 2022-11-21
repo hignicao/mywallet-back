@@ -6,12 +6,12 @@ export async function signInValidation(req, res, next) {
 
 	const user = await usersCollection.findOne({ email });
 	if (!user) {
-		return res.status(401).send({ message: "Email ou senha inválidos" });
+		return res.status(401).send("Email ou senha inválidos");
 	}
 
 	const isPasswordCorrect = bcrypt.compareSync(password, user.password);
 	if (!isPasswordCorrect) {
-		return res.status(401).send({ message: "Email ou senha inválidos" });
+		return res.status(401).send("Email ou senha inválidos");
 	}
 
   const sessionAlreadyExists = await sessionsCollection.findOne({ userId: user._id });

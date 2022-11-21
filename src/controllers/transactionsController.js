@@ -5,7 +5,7 @@ export async function newTransaction(req, res) {
 
 	try {
 		await transactionsCollection.insertOne(transaction);
-		res.sendStatus(201);
+		res.status(201).send(transaction);
 	} catch (error) {
 		console.log(error);
 		return res.sendStatus(500);

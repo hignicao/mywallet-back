@@ -12,7 +12,7 @@ export async function signUpValidation(req, res, next) {
 
 	const userExists = await usersCollection.findOne({ email: user.email });
 	if (userExists) {
-		return res.status(409).send({ message: "E-mail já cadastrado" });
+		return res.status(409).send("E-mail já cadastrado");
 	}
 
 	delete user.confirmPassword;

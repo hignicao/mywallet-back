@@ -9,7 +9,7 @@ export async function transactionValidation(req, res, next) {
 		author: email,
 		date: format(new Date(), "dd/MM"),
 		description,
-		value,
+		value: Number(value),
 		balance,
 	};
 
